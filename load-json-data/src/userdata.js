@@ -1,13 +1,17 @@
 export const userData = [
     {
-        userID: 0,
+        userID: "0",
         userFirstName: "Garrett",
         userLastName: "Leung",
         userEmail: "garrett@gmail.com",
         userUsername: "garebear",
+        userPosts: [
+            "I am so cute!",
+            "I graduated!"
+        ],
         userComments: [
-            "you are so cute!",
-            "congrats!"
+            ["Yeah you are", "I agree"],
+            ["Congrats"]
         ],
         userAlbum: [
             "image1.png",
@@ -16,14 +20,18 @@ export const userData = [
         userBio: "Hi I'm Garrett and I like food"
     },
     {
-        userID: 1,
+        userID: "1",
         userFirstName: "Johnny",
         userLastName: "Gold",
         userEmail: "Gold@april.biz",
         userUsername: "goldyjohn",
-        userComments: [
+        userPosts: [
             "handsom!",
             "wowza!"
+        ],
+        userComments: [
+            ["Yeah you are", "I agree"],
+            ["Congrats"]
         ],
         userAlbum: [
             "image3.png",

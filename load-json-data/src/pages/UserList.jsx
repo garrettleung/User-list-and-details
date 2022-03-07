@@ -1,30 +1,23 @@
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import {userData} from "../userdata";
 import "./pages.css";
 
 function UserList() {
-    useEffect (() => {
-        for (var i = 0; i < userData.js; i++) {
-            var object = userData[i];
-            if (object.id == id) {
-                setFirstName(object.userFirstName);
-                setLastName(object.userLastName);
-                setEmailName(object.userEmail);
-                setBio(object.userBio);
-                setComments(object.userComments);
-                setImages(object.userAlbum);
-            }
-        }
-    });
-
+    //const navigate = useNavigate();
     return (
         <div>
             {userData.map((users) => (
+                <div>
                 <ListItem
                     name = {users.userFirstName + " " + users.userLastName}
-                    key = {users.userID}
+                    username = {users.userUsername}
+                    email = {users.userEmail}
+                    id = {users.userID}
                 />
+                
+                </div>
                 //<div>{users.FirstName + " " + users.LastName}</div>
             ))}
         </div>
@@ -36,21 +29,33 @@ function ListItem(props) {
     const name = props.name;
     const username = props.username;
     const email = props.email;
-    const key = props.key;
+    const id = props.id;
+    //const navigate = useNavigate();
     return (
         <div onMouseEnter={() => setIsShown(true)}
-            onMouseLeave={() => setIsShown(false)}>
+            onMouseLeave={() => setIsShown(false)}
+            // onClick={() => {
+            //     navigate("/a");
+            // }} 
+            className = "listEntry">
             
+            <Link class="nav-link" to={id} >
             {name}
+                        </Link>
+
+            
             {isShown && (
-                <div>
-                {"username: " + username}
-                <br></br>
-                {"email: " + email}
+                <div className="popup">
+                    <a className="popuptext">
+                    {"username: " + username}
+                    <br></br>
+                    {"email: " + email}
+                    </a>
                 </div>
             )}
         </div>
     );
 }
+
 
 export default UserList
